@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CourtManagement.FmClient
+namespace CourtManagement.FmLogin
 {
-    public partial class FmClienr : Form
+    public partial class FmLogin : Form
     {
-        public FmClienr()
+        public FmLogin()
         {
             InitializeComponent();
         }

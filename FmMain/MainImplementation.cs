@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourtManagement.FmMain
+namespace CourtManagement
 {
     internal class MainImplementation
     {
