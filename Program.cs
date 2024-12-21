@@ -1,6 +1,6 @@
-using CourtManagement.FmLogin;
+using CourtManagement;
 
-namespace CourtManagement
+namespace CourtManagement.FmLogin
 {
     internal static class Program
     {
@@ -13,7 +13,7 @@ namespace CourtManagement
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FmRegistration());
+            Application.Run(new FmLogin());
         }
     }
 }

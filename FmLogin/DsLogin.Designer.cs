@@ -270,7 +270,7 @@ namespace CourtManagement.FmLogin.DsLoginTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[1];
+            this._commandCollection = new global::System.Data.IDbCommand[2];
             this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
             ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::Microsoft.Data.SqlClient.SqlConnection("Data Source=pc;Initial Catalog=CourtManagement;Integrated Security=True;TrustServ" +
                     "erCertificate=True");
@@ -357,6 +357,45 @@ namespace CourtManagement.FmLogin.DsLoginTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(param);
+            this._commandCollection[1] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::Microsoft.Data.SqlClient.SqlConnection("Data Source=pc;Initial Catalog=CourtManagement;Integrated Security=True;TrustServ" +
+                    "erCertificate=True");
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "dbo.userSelectRole";
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@RETURN_VALUE";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SqlDbType = global::System.Data.SqlDbType.Int;
+            param.Size = 4;
+            param.Direction = global::System.Data.ParameterDirection.ReturnValue;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(param);
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@login";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SqlDbType = global::System.Data.SqlDbType.VarChar;
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(param);
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@password";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SqlDbType = global::System.Data.SqlDbType.VarChar;
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(param);
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@role";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SqlDbType = global::System.Data.SqlDbType.Int;
+            param.Size = 4;
+            param.Direction = global::System.Data.ParameterDirection.InputOutput;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -431,6 +470,59 @@ namespace CourtManagement.FmLogin.DsLoginTableAdapters {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object userSelectRole(string login, string password, ref global::System.Nullable<int> role) {
+            global::Microsoft.Data.SqlClient.SqlCommand command = ((global::Microsoft.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
+            if ((login == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(password));
+            }
+            if ((role.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(role.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((command.Parameters[3].Value == null) 
+                        || (command.Parameters[3].Value.GetType() == typeof(global::System.DBNull)))) {
+                role = new global::System.Nullable<int>();
+            }
+            else {
+                role = new global::System.Nullable<int>(((int)(command.Parameters[3].Value)));
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {

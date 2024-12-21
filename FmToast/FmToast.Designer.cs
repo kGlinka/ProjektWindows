@@ -1,5 +1,5 @@
 ﻿
-namespace ToastAlerts
+namespace CourtManagement
 {
     partial class Fmtoast
     {

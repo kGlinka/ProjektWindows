@@ -293,7 +293,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FmRegistration";
-            Text = "FmRegistration";
+            Text = "Rejestracja";
             ((System.ComponentModel.ISupportInitialize)PBUserImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
