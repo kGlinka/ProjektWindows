@@ -74,10 +74,12 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SlateGray;
             ClientSize = new Size(800, 450);
             Controls.Add(PanelMainMenu);
             Controls.Add(PanelFooter);
             Controls.Add(PanelMenu);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FmMain";
             Text = "FmMain";
             PanelMainMenu.ResumeLayout(false);
