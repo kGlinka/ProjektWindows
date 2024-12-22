@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace CourtManagement.FmLogin {
+namespace CourtManagement.Login {
     
     
     /// <summary>
@@ -240,7 +240,7 @@ namespace CourtManagement.FmLogin {
         }
     }
 }
-namespace CourtManagement.FmLogin.DsLoginTableAdapters {
+namespace CourtManagement.Login.DsLoginTableAdapters {
     
     
     /// <summary>

@@ -1,6 +1,7 @@
 using CourtManagement;
+using CourtManagement.Login;
 
-namespace CourtManagement.FmLogin
+namespace CourtManagement
 {
     internal static class Program
     {
@@ -14,6 +15,7 @@ namespace CourtManagement.FmLogin
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new FmLogin());
+
         }
     }
 }

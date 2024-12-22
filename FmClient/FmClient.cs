@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CourtManagement.FmClient
+namespace CourtManagement.Client
 {
     public partial class FmClient : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace CourtManagement.FmLogin
+﻿namespace CourtManagement.Login
 {
     partial class FmRegistration
     {

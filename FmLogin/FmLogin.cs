@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CourtManagement.FmLogin
+namespace CourtManagement.Login
 {
     public partial class FmLogin : Form
     {

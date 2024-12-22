@@ -1,4 +1,4 @@
-﻿namespace CourtManagement.FmClient
+﻿namespace CourtManagement.Client
 {
     partial class FmClient
     {

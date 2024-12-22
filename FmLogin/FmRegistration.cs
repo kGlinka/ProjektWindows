@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CourtManagement.FmLogin
+namespace CourtManagement.Login
 {
     public partial class FmRegistration : Form
     {
@@ -31,14 +31,20 @@ namespace CourtManagement.FmLogin
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!IsValidationCorrect)
+            {
+                Fmtoast.AddToQueue("ERROR", "Fromularz zawiera błędy", "Rejestracja");
+                return;
+            }
             using DsLoginTableAdapters.QueriesTableAdapter dsLoginQueriesTableAdapter = new DsLoginTableAdapters.QueriesTableAdapter();
-            dsLoginQueriesTableAdapter.user_clientInsert(
-                txbLogin.Text, txbPassword.Text, txbName.Text, 
-                txbLastName.Text, txbCity.Text, txbStreet.Text, 
-                txbZipCode.Text, int.Parse(txbPhoneNumber.Text), txbEmail.Text);
+                dsLoginQueriesTableAdapter.user_clientInsert(
+                    txbLogin.Text, txbPassword.Text, txbName.Text,
+                    txbLastName.Text, txbCity.Text, txbStreet.Text,
+                    txbZipCode.Text, int.Parse(txbPhoneNumber.Text), txbEmail.Text);
 
-            this.Close();
-            this.DialogResult = DialogResult.OK;
+                this.Close();
+                this.DialogResult = DialogResult.OK;
+            
         }
 
         public bool ValidateZipCode(String zipCode)
