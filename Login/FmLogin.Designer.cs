@@ -40,7 +40,7 @@
             // 
             txbLogin.BackColor = Color.Silver;
             txbLogin.BorderStyle = BorderStyle.None;
-            txbLogin.Location = new Point(244, 85);
+            txbLogin.Location = new Point(162, 21);
             txbLogin.Name = "txbLogin";
             txbLogin.Size = new Size(125, 20);
             txbLogin.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             txbPassword.BackColor = Color.Silver;
             txbPassword.BorderStyle = BorderStyle.None;
-            txbPassword.Location = new Point(239, 143);
+            txbPassword.Location = new Point(162, 47);
             txbPassword.Name = "txbPassword";
             txbPassword.Size = new Size(125, 20);
             txbPassword.TabIndex = 1;
@@ -58,9 +58,10 @@
             // 
             // btnRegister
             // 
+            btnRegister.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnRegister.BackColor = Color.Silver;
             btnRegister.FlatStyle = FlatStyle.Flat;
-            btnRegister.Location = new Point(206, 233);
+            btnRegister.Location = new Point(12, 94);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(116, 56);
             btnRegister.TabIndex = 2;
@@ -70,9 +71,10 @@
             // 
             // btnLogin
             // 
+            btnLogin.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLogin.BackColor = Color.Silver;
             btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Location = new Point(344, 233);
+            btnLogin.Location = new Point(211, 94);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(116, 56);
             btnLogin.TabIndex = 3;
@@ -83,7 +85,7 @@
             // lbLogin
             // 
             lbLogin.AutoSize = true;
-            lbLogin.Location = new Point(91, 88);
+            lbLogin.Location = new Point(17, 21);
             lbLogin.Name = "lbLogin";
             lbLogin.Size = new Size(139, 20);
             lbLogin.TabIndex = 4;
@@ -92,7 +94,7 @@
             // lbRegister
             // 
             lbRegister.AutoSize = true;
-            lbRegister.Location = new Point(183, 150);
+            lbRegister.Location = new Point(109, 47);
             lbRegister.Name = "lbRegister";
             lbRegister.Size = new Size(47, 20);
             lbRegister.TabIndex = 5;
@@ -103,7 +105,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SlateGray;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(339, 156);
             Controls.Add(lbRegister);
             Controls.Add(lbLogin);
             Controls.Add(btnLogin);

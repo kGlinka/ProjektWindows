@@ -23,7 +23,7 @@ namespace CourtManagement.Login
         {
             if (txbLogin.Text.Length <= 0)
             {
-                txbLogin.BackColor = Color.Red;
+                txbLogin.BackColor = Color.PaleVioletRed;
                 Fmtoast.AddToQueue("ERROR", "To pole jest wymagane", "Nazwa użytkownika");
                 IsValidationCorrected = false;
             }
@@ -37,7 +37,7 @@ namespace CourtManagement.Login
         {
             if (txbPassword.Text.Length <= 0)
             {
-                txbPassword.BackColor = Color.Red;
+                txbPassword.BackColor = Color.PaleVioletRed;
                 Fmtoast.AddToQueue("ERROR", "To pole jest wymagane", "Nazwa użytkownika");
                 IsValidationCorrected = false;
             }
@@ -50,7 +50,8 @@ namespace CourtManagement.Login
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
+            FmRegistration fmRegistration = new FmRegistration();
+            fmRegistration.ShowDialog();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -61,8 +62,9 @@ namespace CourtManagement.Login
                 return;
             }
             int? userRole = null;
+            int? userId = null;
             using DsLoginTableAdapters.QueriesTableAdapter dsLoginQueriesTableAdapter = new DsLoginTableAdapters.QueriesTableAdapter();
-            dsLoginQueriesTableAdapter.userSelectRole(txbLogin.Text, txbPassword.Text, ref userRole);
+            dsLoginQueriesTableAdapter.userSelectIdAndRole(txbLogin.Text, txbPassword.Text, ref userRole, ref userId);
             if (userRole == null
                 || userRole == 0)
             {
@@ -70,11 +72,10 @@ namespace CourtManagement.Login
                 return;
             }
 
-            FmMain fmMain = new FmMain();
-            fmMain.Show();
+            GlobalVariables.SetUserRole(userRole.Value);
+            GlobalVariables.SetUserId(userId.Value);
             this.Close();
             this.DialogResult = DialogResult.OK;
-
         }
     }
 }

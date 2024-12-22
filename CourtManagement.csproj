@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="FmLogin\DsLogin.Designer.cs">
+    <Compile Update="Login\DsLogin.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DsLogin.xsd</DependentUpon>
@@ -26,6 +26,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Reservation\DsReservation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DsReservation.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -36,10 +41,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="FmLogin\DsLogin.xsd">
+    <None Update="Login\DsLogin.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsLogin.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
+    <None Update="Reservation\DsReservation.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReservation.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="FmLogin\" />
   </ItemGroup>
 
 </Project>

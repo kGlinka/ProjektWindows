@@ -270,7 +270,7 @@ namespace CourtManagement.Login.DsLoginTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[2];
+            this._commandCollection = new global::System.Data.IDbCommand[3];
             this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
             ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::Microsoft.Data.SqlClient.SqlConnection("Data Source=pc;Initial Catalog=CourtManagement;Integrated Security=True;TrustServ" +
                     "erCertificate=True");
@@ -396,6 +396,54 @@ namespace CourtManagement.Login.DsLoginTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = null;
             ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(param);
+            this._commandCollection[2] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::Microsoft.Data.SqlClient.SqlConnection("Data Source=pc;Initial Catalog=CourtManagement;Integrated Security=True;TrustServ" +
+                    "erCertificate=True");
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandText = "dbo.userSelectIdAndRole";
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@RETURN_VALUE";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SqlDbType = global::System.Data.SqlDbType.Int;
+            param.Size = 4;
+            param.Direction = global::System.Data.ParameterDirection.ReturnValue;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(param);
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@login";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SqlDbType = global::System.Data.SqlDbType.VarChar;
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(param);
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@password";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SqlDbType = global::System.Data.SqlDbType.VarChar;
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(param);
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@user_role";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SqlDbType = global::System.Data.SqlDbType.Int;
+            param.Size = 4;
+            param.Direction = global::System.Data.ParameterDirection.InputOutput;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(param);
+            param = new global::Microsoft.Data.SqlClient.SqlParameter();
+            param.ParameterName = "@user_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SqlDbType = global::System.Data.SqlDbType.Int;
+            param.Size = 4;
+            param.Direction = global::System.Data.ParameterDirection.InputOutput;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            ((global::Microsoft.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -523,6 +571,72 @@ namespace CourtManagement.Login.DsLoginTableAdapters {
             }
             else {
                 role = new global::System.Nullable<int>(((int)(command.Parameters[3].Value)));
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object userSelectIdAndRole(string login, string password, ref global::System.Nullable<int> user_role, ref global::System.Nullable<int> user_id) {
+            global::Microsoft.Data.SqlClient.SqlCommand command = ((global::Microsoft.Data.SqlClient.SqlCommand)(this.CommandCollection[2]));
+            if ((login == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(password));
+            }
+            if ((user_role.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(user_role.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((user_id.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(user_id.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((command.Parameters[3].Value == null) 
+                        || (command.Parameters[3].Value.GetType() == typeof(global::System.DBNull)))) {
+                user_role = new global::System.Nullable<int>();
+            }
+            else {
+                user_role = new global::System.Nullable<int>(((int)(command.Parameters[3].Value)));
+            }
+            if (((command.Parameters[4].Value == null) 
+                        || (command.Parameters[4].Value.GetType() == typeof(global::System.DBNull)))) {
+                user_id = new global::System.Nullable<int>();
+            }
+            else {
+                user_id = new global::System.Nullable<int>(((int)(command.Parameters[4].Value)));
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {

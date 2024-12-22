@@ -11,11 +11,21 @@ namespace CourtManagement
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // Inicjalizowanie aplikacji Windows Forms
             ApplicationConfiguration.Initialize();
-            Application.Run(new FmLogin());
 
+            // Uruchomienie formularza logowania
+            FmLogin fmLogin = new FmLogin();
+            if (fmLogin.ShowDialog() == DialogResult.OK)
+            {
+                // Jeœli wynik DialogResult to OK, uruchamiamy g³ówny formularz
+                Application.Run(new FmMain());
+            }
+            else
+            {
+                // Jeœli wynik DialogResult nie jest OK, zamykamy aplikacjê
+                Application.Exit();
+            }
         }
     }
 }
